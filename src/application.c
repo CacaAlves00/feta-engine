@@ -3,7 +3,7 @@
 #include "./../external-libs/glfw/include/GLFW/glfw3.h"
 
 const int WIDTH = 400, HEIGHT = 500;
-const char* TITLE = "Feta Engine";
+const char *TITLE = "Feta Engine";
 
 int main(int argc, char const *argv[])
 {
@@ -21,7 +21,7 @@ int main(int argc, char const *argv[])
 
     GLFWwindow *mainWindow = glfwCreateWindow(WIDTH, HEIGHT, TITLE, NULL, NULL);
 
-    if (!mainWindow) 
+    if (!mainWindow)
     {
         printf("GLFW window creation failed\n");
         glfwTerminate();
@@ -34,6 +34,30 @@ int main(int argc, char const *argv[])
     glfwMakeContextCurrent(mainWindow);
 
     glewExperimental = GL_TRUE;
+
+    GLenum glewInitRes = glewInit();
+    if (glewInitRes != GLEW_OK)
+    {
+        printf("GLEW initialization failed\n");
+        glfwDestroyWindow(mainWindow);
+        glfwTerminate();
+
+        return 1;
+    }
+
+    glViewport(0, 0, bufferWidth, bufferHeight);
+
+    while (!glfwWindowShouldClose(mainWindow))
+    {
+        // Get and handle user input events
+        glfwPollEvents();
+
+        // Clear window
+        glClearColor(1.0f, 1.0f, 0.5f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT);
+
+        glfwSwapBuffers(mainWindow);
+    }
 
     return 0;
 }
