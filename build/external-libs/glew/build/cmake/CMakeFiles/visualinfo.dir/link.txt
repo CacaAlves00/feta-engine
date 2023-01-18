@@ -1,0 +1,1 @@
+/usr/bin/gcc -g  -rdynamic CMakeFiles/visualinfo.dir/__/__/src/visualinfo.c.o  -o ../../../../bin/visualinfo  ../../../../lib/libGLEWd.a -lSM -lICE -lX11 -lXext -lOpenGL -lGLX -lSM -lICE -lX11 -lXext 

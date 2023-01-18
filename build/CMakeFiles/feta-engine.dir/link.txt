@@ -1,0 +1,1 @@
+/usr/bin/gcc -g  -rdynamic CMakeFiles/feta-engine.dir/src/application.c.o  -o feta-engine  -Wl,-rpath,/usr/local/lib64 /usr/local/lib64/libGLEW.so external-libs/glfw/src/libglfw3.a /usr/lib/x86_64-linux-gnu/libGL.so -lpthread -lrt -lm -ldl 
